@@ -13,8 +13,5 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-#      - name: Build the tagged Docker image
-#          run: docker build . --file Dockerfile --tag pjlamb12/angular-cli:${{steps.vars.outputs.tag}}
-
       - name: Build Docker From Action
       - uses: actions/build-docker@v1

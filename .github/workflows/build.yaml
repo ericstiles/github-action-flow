@@ -18,14 +18,9 @@ jobs:
           password: ${{ secrets.DOCKER_PERSONAL_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_USERNAME }}
           ecr: false
-      - name: Build the Docker image
-        run: |-
-          echo "-1---------------------------"
-          pwd
-          ls -alh
-          echo "-2---------------------------"
-          docker build . \
-            --file Dockerfile \
-            --tag docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA
-          docker push \
-            docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA
+
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        with:
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA

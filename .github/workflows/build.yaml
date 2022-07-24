@@ -18,7 +18,6 @@ jobs:
           password: ${{ secrets.DOCKER_PERSONAL_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_USERNAME }}
           ecr: false
-      - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |-
           echo "-1---------------------------"

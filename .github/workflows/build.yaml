@@ -23,17 +23,7 @@ jobs:
         run: |-
           echo "-1---------------------------"
           pwd
-          echo "-3---------------------------"
-          ls -alh
-          echo "-3---------------------------"
-          cd && pwd
-          echo "-3---------------------------"
-          ls -alh
-          echo "-4---------------------------"
-          cd ./work
-          echo "-5---------------------------"
-          ls -alh
-
+          echo "-2---------------------------"
           docker build . \
             --file Dockerfile \
             --tag docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA

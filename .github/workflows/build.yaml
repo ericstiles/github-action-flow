@@ -22,8 +22,8 @@ jobs:
       - name: Build the Docker image
         run: |-
           echo "-1---------------------------"
-          find / -iname "build" -type d 2>/dev/null
-          echo "-2---------------------------"
+#          find / -iname "build" -type d 2>/dev/null
+#          echo "-2---------------------------"
           pwd
           echo "-3---------------------------"
           ls -alh

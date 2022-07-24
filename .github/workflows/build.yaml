@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |-
-          find / -iname "build" -type d
+          find / -iname "build" -type d 2>/dev/null
           pwd
           ls -alh
           docker build . \

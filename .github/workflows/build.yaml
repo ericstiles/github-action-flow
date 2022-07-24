@@ -30,6 +30,10 @@ jobs:
           echo "-3---------------------------"
           ls -alh
           echo "-4---------------------------"
+          cd ./work
+          echo "-5---------------------------"
+          ls -alh
+
           docker build . \
             --file Dockerfile \
             --tag docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA

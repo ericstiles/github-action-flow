@@ -23,6 +23,7 @@ jobs:
         run: |-
           echo "-1---------------------------"
           pwd
+          ls -alh
           echo "-2---------------------------"
           docker build . \
             --file Dockerfile \

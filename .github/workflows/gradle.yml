@@ -21,6 +21,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build the Docker image
         run: |-
+          pwd
+          ls -alh
           docker build . \
             --file Dockerfile \
             --tag docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA

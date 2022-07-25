@@ -18,9 +18,17 @@ jobs:
           password: ${{ secrets.DOCKER_PERSONAL_ACCESS_TOKEN }}
           username: ${{ secrets.DOCKER_USERNAME }}
           ecr: false
-
-      - name: Build and push
-        uses: docker/build-push-action@v3
-        with:
-          push: true
-          tags: ericstiles/learn-action:latest
+      - name: Build Tag and Push Docker Image
+        run: |-
+          echo "-1---------------------------"
+          pwd
+          ls -alh
+          echo "-2---------------------------"
+          docker build \
+            --file Dockerfile \
+            -t docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:$GITHUB_SHA \
+            -t docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:latest \
+            -t docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}:0.0.1 \
+            .
+          docker push -a \
+            docker.io/${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPOSITORY }}
